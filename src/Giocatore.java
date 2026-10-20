@@ -35,6 +35,7 @@ public class Giocatore implements Runnable{
      * gioca, metodo che implementa la logica del gioco e calcola il punteggio
      */
     public void gioca(){
+        Long tempoInizio = System.currentTimeMillis();
         int numero = 19;
         String parola = "Divertiti";
         setParola(parola);
@@ -52,6 +53,8 @@ public class Giocatore implements Runnable{
         setPunteggio(100);
 
         System.out.println("Giocatore : " + nome + " parola: " + getParola() + " punteggio: " + punteggio);
+        Long tempoFine = System.currentTimeMillis();
+        System.out.println("Giocatore : " + nome + "tempo: " + (tempoFine - tempoInizio)/1000);
     }
 
     public void comunica(){
