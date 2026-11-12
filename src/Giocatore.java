@@ -6,10 +6,12 @@ public class Giocatore implements Runnable{
     String nome;
     private String parola;
     private int punteggio;
+    private Cifratura cifratura = new Cifratura(); // Aggiunto per collegare Cifratura
 
     /**
      *
-     * @param nome nome del Giocatore
+     -
+     @param nome nome del Giocatore
      */
     public Giocatore(String nome){
         this.nome = nome;
@@ -32,13 +34,14 @@ public class Giocatore implements Runnable{
     }
 
     /**
-     * gioca, metodo che implementa la logica del gioco e calcola il punteggio
+     - gioca, metodo che implementa la logica del gioco e calcola il punteggio
+
      */
     public void gioca(){
         Long tempoInizio = System.currentTimeMillis();
         int numero = 19;
         String parola = "Divertiti";
-        setParola(parola);
+        setParola(cifratura.cifra(parola)); // Modificato per salvare la parola cifrata
 
 
         for (int i=0; i<numero; i++){
